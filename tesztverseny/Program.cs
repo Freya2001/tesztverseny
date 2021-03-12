@@ -6,6 +6,10 @@ namespace tesztverseny
 {
     class Program
     {
+        static List<int> pont = new List<int>();
+        static List<string> azon = new List<string>();  //index koti ossze a 3 listat  
+        static List<string> valasz = new List<string>();
+
         static string ValaszEll(string helyesv, string megadottv)
         {
             string result = "";
@@ -23,11 +27,32 @@ namespace tesztverseny
             return result;
         }
 
+        static void Eredmenyh(int adottpont, int helyezes)
+        {
+            for (int i = 0; i < pont.Count; i++)
+            {
+                if (adottpont == pont[i])
+                {
+                    Console.WriteLine($"{helyezes}. díj ({pont[i]} pont): {azon[i]}");
+                }
+            }
+        }
+        static int Maxpont(int kisebbmint)
+        {
+            int legnagyobb = -1;
+            for (int i = 0; i < pont.Count; i++)
+            {
+                if (legnagyobb < pont[i] && pont[i] < kisebbmint)
+                {
+                    legnagyobb = pont[i];
+                }
+            }
+            return legnagyobb;
+        }
         static void Main(string[] args)
         {
             int versenyzo = 0;    // mindig = az azon/valasz.Count
-            List<string> azon = new List<string>();  //index koti ossze a ket listat  o-i-o
-            List<string> valasz = new List<string>();
+            
             #region Beolvasás
             StreamReader file = new StreamReader(@"..\..\..\valaszok.txt");  //megnyit olvasasra
             bool readLineSuccesful = true;
@@ -93,7 +118,6 @@ namespace tesztverseny
             #region 6.feladat
             Console.Write("6. feladat: A versenyzők pontszámának meghatározása");
             Console.Write("\n");
-            List<int> pont = new List<int>();
             for (int i = 0; i < valasz.Count; i++)
             {
                 int versenyzopont = 0;
@@ -132,30 +156,15 @@ namespace tesztverseny
             mentes.Close();
             #endregion
             #region 7.feladat
-            int elsopont = 0;
-            int masodikpont = 0;
-            int harmadikpont = 0;
-            for (int i = 0; i < azon.Count; i++)
-            {
-                if (elsopont <= pont[i])
-                {
-                    elsopont = pont[i];
-                }
-                if (masodikpont != elsopont & masodikpont < pont[i])
-                {
-                    masodikpont = pont[i];
-                }
-                if (harmadikpont != masodikpont & harmadikpont < pont[i])
-                {
-                    harmadikpont = pont[i];
-                }
-            }
+            int elsopont = Maxpont(10000);
+            int masodikpont = Maxpont(elsopont);
+            int harmadikpont = Maxpont(masodikpont);
+            
                 
             Console.WriteLine("7. feladat: A verseny legjobbjai:");
-            
-            Console.WriteLine($"1.díj({elsopont} pont): ");
-            Console.WriteLine($"2.díj({masodikpont} pont): ");
-            Console.WriteLine($"3.díj({harmadikpont} pont): ");
+            Eredmenyh(elsopont, 1);
+            Eredmenyh(masodikpont, 2);
+            Eredmenyh(harmadikpont, 3);
             #endregion
         }
 
