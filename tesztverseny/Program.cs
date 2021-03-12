@@ -154,13 +154,13 @@ namespace tesztverseny
             mentes.Close();
             #endregion
             #region 7.feladat
-            int elsopont = Maxpont(10000);
-            int masodikpont = Maxpont(elsopont);
-            int harmadikpont = Maxpont(masodikpont);
+            int elsopont = Maxpont(10000); // első helyezett(ek) pontjai
+            int masodikpont = Maxpont(elsopont); // második helyezett(ek) pontjai
+            int harmadikpont = Maxpont(masodikpont); // harmadik helyezett(ek) pontjai
             Console.WriteLine("7. feladat: A verseny legjobbjai:");
-            Eredmenyh(elsopont, 1);
-            Eredmenyh(masodikpont, 2);
-            Eredmenyh(harmadikpont, 3);
+            Eredmenyh(elsopont, 1); // első helyezett(ek) kiírása
+            Eredmenyh(masodikpont, 2); // második helyezett(ek) kiírása
+            Eredmenyh(harmadikpont, 3); // harmadik helyezett(ek) kiírása
             #endregion
         }
     }
