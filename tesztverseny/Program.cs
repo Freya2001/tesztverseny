@@ -9,7 +9,6 @@ namespace tesztverseny
         static List<int> pont = new List<int>();
         static List<string> azon = new List<string>();  //index koti ossze a 3 listat  
         static List<string> valasz = new List<string>();
-
         static string ValaszEll(string helyesv, string megadottv)
         {
             string result = "";
@@ -26,7 +25,6 @@ namespace tesztverseny
             }
             return result;
         }
-
         static void Eredmenyh(int adottpont, int helyezes)
         {
             for (int i = 0; i < pont.Count; i++)
@@ -159,15 +157,11 @@ namespace tesztverseny
             int elsopont = Maxpont(10000);
             int masodikpont = Maxpont(elsopont);
             int harmadikpont = Maxpont(masodikpont);
-            
-                
             Console.WriteLine("7. feladat: A verseny legjobbjai:");
             Eredmenyh(elsopont, 1);
             Eredmenyh(masodikpont, 2);
             Eredmenyh(harmadikpont, 3);
             #endregion
         }
-
-
     }
 }
