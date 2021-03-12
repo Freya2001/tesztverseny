@@ -29,7 +29,7 @@ namespace tesztverseny
             List<string> azon = new List<string>();  //index koti ossze a ket listat  o-i-o
             List<string> valasz = new List<string>();
             #region Beolvasás
-            StreamReader file = new StreamReader("valaszok.txt");  //megnyit olvasasra
+            StreamReader file = new StreamReader(@"..\..\..\valaszok.txt");  //megnyit olvasasra
             bool readLineSuccesful = true;
             string helyesvalasz = file.ReadLine();
             while (readLineSuccesful)
@@ -124,8 +124,7 @@ namespace tesztverseny
                 }
                 pont.Add(versenyzopont);
             }
-            string path = @".\pontok.txt";
-            StreamWriter mentes = new StreamWriter(path);
+            StreamWriter mentes = new StreamWriter(@"..\..\..\pontok.txt");
             for (int i = 0; i < azon.Count; i++)
             {
                 mentes.WriteLine(azon[i] + " " + pont[i]);
