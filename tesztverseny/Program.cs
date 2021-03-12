@@ -131,6 +131,32 @@ namespace tesztverseny
             }
             mentes.Close();
             #endregion
+            #region 7.feladat
+            int elsopont = 0;
+            int masodikpont = 0;
+            int harmadikpont = 0;
+            for (int i = 0; i < azon.Count; i++)
+            {
+                if (elsopont <= pont[i])
+                {
+                    elsopont = pont[i];
+                }
+                if (masodikpont != elsopont & masodikpont < pont[i])
+                {
+                    masodikpont = pont[i];
+                }
+                if (harmadikpont != masodikpont & harmadikpont < pont[i])
+                {
+                    harmadikpont = pont[i];
+                }
+            }
+                
+            Console.WriteLine("7. feladat: A verseny legjobbjai:");
+            
+            Console.WriteLine($"1.díj({elsopont} pont): ");
+            Console.WriteLine($"2.díj({masodikpont} pont): ");
+            Console.WriteLine($"3.díj({harmadikpont} pont): ");
+            #endregion
         }
 
 
